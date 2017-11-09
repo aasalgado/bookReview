@@ -21,7 +21,10 @@ module.exports = {
         var book = new Book(req.body) // book will have title, author, review, rating & critic
         book.user = req.user
 		book.save((err, book) => {
-			if(err) return res.json({success: false, code: err.code})
+			if(err) {
+                console.log(err)
+                return res.json({success: false, code: err.code})
+            }
 			res.json({success: true, message: "Book Review created.", book })
         })
         // another way 

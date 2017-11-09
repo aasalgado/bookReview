@@ -4,7 +4,8 @@ const
 	usersCtrl = require('../controllers/users.js'),
 	verifyToken = require('../serverAuth.js').verifyToken
 
-usersRouter.route('/')
+usersRouter.post('/authenticate', usersCtrl.authenticate)
+	usersRouter.route('/')
 	.get(usersCtrl.index)
 	.post(usersCtrl.create)
 

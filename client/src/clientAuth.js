@@ -52,6 +52,10 @@ function logOut() {
 	return true
 }
 
+// function getUserBooks() {
+// 	clientAuth.get('/api/books',)
+// }
+
 
 export default {
 	getCurrentUser,

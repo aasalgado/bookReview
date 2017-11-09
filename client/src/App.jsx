@@ -18,6 +18,7 @@ class App extends React.Component {
 
 	onLoginSuccess(user) {
 		this.setState({ currentUser: clientAuth.getCurrentUser() })
+		console.log(this.state.currentUser)
 	}
 
 	logOut() {
@@ -47,9 +48,9 @@ class App extends React.Component {
 						return <SignUp {...props} onSignUpSuccess={this.onLoginSuccess.bind(this)} />
 					}} />
 
-					<Route path="/vip" render={() => {
+					<Route path="/vip" render={(props) => {
 						return currentUser
-							? <VIP />
+							? <VIP {...props} userId={this.state.currentUser._id} name={this.state.currentUser.name}/>
 							: <Redirect to="/login" />
 					}} />
 
