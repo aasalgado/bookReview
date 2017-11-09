@@ -55,7 +55,7 @@ class UserRevs extends React.Component {
 		// console.log(books)
 		return (
 			<div>
-				<h1>Your Book Reviews</h1>
+				<h1>Your Reviews</h1>
 				<h2>User name: {this.props.name}</h2>
 				<form onSubmit={this.onFormSubmit.bind(this)}>
           <input type = "text" ref="bookReview"/>
