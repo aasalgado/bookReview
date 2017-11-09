@@ -25,7 +25,7 @@ class ListRevs extends React.Component{
 				{this.state.books.map((book,i) => {
 					return (
 						<li key={book._id}>
-						{book.title}
+						<strong>Title:</strong> {book.title} <strong>Author:</strong> {book.author}
 						</li>
 					)
 				})}

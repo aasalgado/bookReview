@@ -6,7 +6,7 @@ import NavBar from './NavBar'
 import LogIn from './views/LogIn'
 import LogOut from './views/LogOut'
 import SignUp from './views/SignUp'
-import VIP from './views/VIP'
+import URevs from './views/UserRevs'
 import Home from './views/Home'
 
 class App extends React.Component {
@@ -48,9 +48,9 @@ class App extends React.Component {
 						return <SignUp {...props} onSignUpSuccess={this.onLoginSuccess.bind(this)} />
 					}} />
 
-					<Route path="/vip" render={(props) => {
+					<Route path="/urevs" render={(props) => {
 						return currentUser
-							? <VIP {...props} userId={this.state.currentUser._id} name={this.state.currentUser.name}/>
+							? <URevs {...props} userId={this.state.currentUser._id} name={this.state.currentUser.name}/>
 							: <Redirect to="/login" />
 					}} />
 

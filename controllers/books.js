@@ -48,7 +48,7 @@ module.exports = {
 
 	destroy: (req, res) => {
 		Book.findByIdAndRemove(req.params.id, (err, book) => {
-			res.json({success: true, message: "Book Review Deleted.", book})
+			res.json({success: true, message: "Book Review Deleted."})
 		})
 	}
 }
