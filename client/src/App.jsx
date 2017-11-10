@@ -12,7 +12,7 @@ import Home from './views/Home'
 class App extends React.Component {
 	state = { currentUser: null }
 
-	componentDidMount() {
+	componentWillMount() {
 		this.setState({ currentUser: clientAuth.getCurrentUser() })
 	}
 

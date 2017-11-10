@@ -5,15 +5,15 @@ booksCtrl = require('../controllers/books.js'),
 verifyToken = require('../serverAuth.js').verifyToken
 
 
-booksRouter.get('/', booksCtrl.index)
-// booksRouter.route('/')
-// .get(booksCtrl.index)
-// .post(booksCtrl.create)
+// booksRouter.get('/', booksCtrl.index)
+booksRouter.route('/')
+.get(booksCtrl.index)
+.post(verifyToken, booksCtrl.create)
 
-booksRouter.use(verifyToken)
+// booksRouter.use(verifyToken)
 
 
-booksRouter.post('/', booksCtrl.create)
+// booksRouter.post('/', booksCtrl.create)
 
 booksRouter.route('/:id')
 .get(booksCtrl.show)

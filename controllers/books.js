@@ -18,7 +18,8 @@ module.exports = {
 
 	create: (req, res) => {
         console.log("create review")
-        var book = new Book(req.body) // book will have title, author, review, rating & critic
+		var book = new Book(req.body) // book will have title, author, review, rating & critic
+		console.log(book)
         book.user = req.user
 		book.save((err, book) => {
 			if(err) {

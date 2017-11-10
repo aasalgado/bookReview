@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 // const Home = (props) => {
@@ -11,7 +12,12 @@ import axios from 'axios'
 
 class ListRevs extends React.Component{
 	state = {
-		books: []
+		books: [],
+		popUp: false
+	}
+
+	toggleRev() {
+		this.setState({popUp: !this.state.popUp})
 	}
 	componentDidMount() {
     axios({method: 'get', url: '/api/books'})
@@ -24,9 +30,10 @@ class ListRevs extends React.Component{
 				<ul>
 				{this.state.books.map((book,i) => {
 					return (
+						<Link to={`/rev/${book._id}`} onClick={this.toggleRev.bind(this)}>
 						<li key={book._id}>
 						<strong>Title:</strong> {book.title} <strong>Author:</strong> {book.author}
-						</li>
+						</li> </Link>
 					)
 				})}
 				</ul>
