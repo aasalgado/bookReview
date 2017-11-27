@@ -3,7 +3,7 @@ const signToken = require('../serverAuth.js').signToken
 
 module.exports = {
 	index: (req, res) => {
-		Book.find({}, (err, books) => {
+		Book.find({}).populate('critic').exec((err, books) => {
 			res.json(books)
 		})
 	},

@@ -19,6 +19,7 @@ const NavBar = (props) => {
 					</span>
 				)
 			}
+			<div className="title">BookRevs</div>
 		</div>
 	)
 }

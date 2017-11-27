@@ -1,27 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import axios from 'axios'
-
-// const Home = (props) => {
-// 	return (
-// 		<div className='Home'>
-// 			<h1>Book List Here</h1>
-// 		</div>
-// 	)
-// }
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+//import './views/styles.css'
 
 class ListRevs extends React.Component{
 	state = {
 		books: [],
-		popUp: false
 	}
 
-	toggleRev() {
-		this.setState({popUp: !this.state.popUp})
-	}
 	componentDidMount() {
     axios({method: 'get', url: '/api/books'})
-    .then(res => this.setState({books: res.data}))
+    .then(res => {
+		this.setState({books: res.data})
+		console.log(res.data)
+	})
   }
 	render() {
 		return (
@@ -30,10 +22,18 @@ class ListRevs extends React.Component{
 				<ul>
 				{this.state.books.map((book,i) => {
 					return (
-						<Link to={`/rev/${book._id}`} onClick={this.toggleRev.bind(this)}>
-						<li key={book._id}>
-						<strong>Title:</strong> {book.title} <strong>Author:</strong> {book.author}
-						</li> </Link>
+						<div key={book._id} className='container'>
+						<div className="row">
+						<div className='column'><img src={book.image} /></div>
+						<div className='column column-25'>
+						<tr><div className="row"><strong>Title: </strong>{book.title}</div></tr>
+						<div className="row"><strong>Author: </strong>{book.author}</div>
+						<div><strong>Review:</strong> {book.review}</div>
+						<div><strong>Review By:</strong> {book.critic ? book.critic.name : null}</div>
+						</div>
+						<div className="column column-60"></div>
+						</div>
+						</div>
 					)
 				})}
 				</ul>

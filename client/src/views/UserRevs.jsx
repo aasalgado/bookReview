@@ -85,7 +85,7 @@ class UserRevs extends React.Component {
 		axios({ method: 'post', url: '/api/books', data: newBook })
 		.then((res)=> {
 			console.log(res.data)
-			this.state.books.push(res.data.book)
+			this.state.books.unshift(res.data.book)
 			this.setState({
 				...this.state,
 				books: this.state.books
@@ -168,10 +168,18 @@ class UserRevs extends React.Component {
 					<ul>
 							{this.state.books.map((book,i) => {
 								return (
-									<li key={book._id}>
-									<strong>Title:</strong> {book.title} <strong>Author:</strong> {book.author}
+									
+									
+									<div key={book._id} className='container'>
+									<div className='row'>
+									<div className='column column-25'><img src={book.image} /></div>
+									<dl className='column column-50'>
+									<dt><strong>Title:</strong> {book.title}</dt> <dd><strong>Author:</strong> {book.author}</dd> <dd><strong>Review:</strong> {book.review}</dd>
+									</dl>
 									<button onClick={this.deleteThis.bind(this, book._id)}>Delete</button>
-									</li>
+									</div>
+									</div>
+								
 								)
 							})}
 						</ul>

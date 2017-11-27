@@ -1,12 +1,33 @@
 body {
 	padding: 20px;
+	/* background-color: #5f4651; */
+
+	/* background-size: cover; */
+	/* height: 100vh; */
+
 }
 
 a, button {
 	margin: 0 5px;
 	cursor: pointer;
 }
+a {
+	color: dodgerblue;
+}
+button {
+	background-color: dodgerblue;
+}
 
 .NavBar {
-	margin-bottom: 20px
+	margin-bottom: 10px;
 }
+
+.title {
+	margin-left: 25%;
+	color: dodgerblue;
+	display: inline-block;
+	font-size: 40px;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+
