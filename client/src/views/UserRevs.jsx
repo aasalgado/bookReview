@@ -16,12 +16,18 @@ class UserRevs extends React.Component {
 	}
 
 	componentDidMount() {
-		// console.log(this.props)
 		axios({method: 'get', url: '/api/books'})
 		.then(res => res.data)
 		.then(books => {
+			console.log(books)
 			this.setState({
-				books: books.filter(book => book.critic === this.props.userId)
+				books: books.filter(book => {
+					if (book.critic) {
+						if (book.critic._id === this.props.userId) {
+							return book
+						}
+					} 
+				})
 			})
 		})
 	}
@@ -93,11 +99,6 @@ class UserRevs extends React.Component {
 			})
 		})
 		
-		// do I need the code below??
-		// this.setState({
-		// 	...this.state,
-		// 	addedBook: true
-		// })
 	}
 
 	onInputChange(evt) {
@@ -166,6 +167,7 @@ class UserRevs extends React.Component {
 				</div>
 				<div className='row'>
 					<ul>
+					
 							{this.state.books.map((book,i) => {
 								return (
 									

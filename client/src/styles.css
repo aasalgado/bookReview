@@ -29,5 +29,9 @@ button {
 	font-size: 40px;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 }
+input.box {
+	width: 25%;
+	display: block;
+}
 
 
